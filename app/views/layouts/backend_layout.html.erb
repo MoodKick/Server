@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Moodkick Server Backend" %></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <header class="navbar navbar-fixed-top">
+      <nav class="navbar-inner">
+        <div class="container">
+          <%= link_to "Moodkick Backend", backend_root_path, class: 'brand' %>
+          <% if backend_user_signed_in? %>
+            <ul class="nav">
+              <% if has_claim?(Claim::ClientAccess) %>
+                <li><a data-menu-item="client" href="#">Client</a></li>
+              <% end %>
+              <% if has_claim?(Claim::TherapistAccess) %>
+                <li><a data-menu-item="therapist" href="#">Therapist</a></li>
+              <% end %>
+              <% if has_claim?(Claim::AdminAccess) %>
+                <li><a data-menu-item="admin" href="#">Admin</a></li>
+              <% end %>
+            </ul>
+            <ul class="nav account">
+              <li class="sign-out"><%= link_to 'Sign out', destroy_backend_user_session_path, method: 'delete' %></li>
+            </ul>
+          <% else %>
+            <ul class="nav account">
+              <li class="sign-in"><%= link_to 'Sign in', new_backend_user_session_path %></li>
+            </ul>
+          <% end %>
+        </div>
+      </nav>
+      <% if has_claim?(Claim::ClientAccess) %>
+        <nav class="navbar-inner" data-navbar-secondary data-menu-item="client">
+          <div class="container">
+            <ul class="nav">
+              <li><%= link_to 'Chest of hope', backend_client_hope_items_path %></li>
+              <li><%= link_to 'Safety plan', backend_client_safety_plan_path %></li>
+            </ul>
+          </div>
+        </nav>
+      <% end %>
+      <% if has_claim?(Claim::TherapistAccess) %>
+        <nav class="navbar-inner" data-navbar-secondary data-menu-item="therapist">
+          <div class="container">
+            <ul class="nav">
+              <li class="clients"><%= link_to 'Clients', backend_therapist_clients_path %></li>
+              <li><%= link_to 'Brochures', backend_therapist_brochures_path %></li>
+              <li><%= link_to 'Questionnaires', backend_therapist_questionnaires_path %></li>
+            </ul>
+          </div>
+        </nav>
+      <% end %>
+      <% if has_claim?(Claim::AdminAccess) %>
+        <nav class="navbar-inner" data-navbar-secondary data-menu-item="admin">
+          <div class="container">
+            <ul class="nav">
+              <li><%= link_to 'Content objects', backend_admin_content_objects_path %></li>
+              <li><%= link_to 'Users', backend_admin_users_path %></li>
+            </ul>
+          </div>
+        </nav>
+      <% end %>
+    </header>
+    <div id="main" role="main">
+      <div class="container">
+        <%= render 'layouts/messages' %>
+        <%= yield %>
+      </div> <!--! end of .container -->
+    </div> <!--! end of #main -->
+  </body>
+</html>

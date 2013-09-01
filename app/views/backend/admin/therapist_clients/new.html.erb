@@ -1,0 +1,15 @@
+<div class="page-header">
+  <h2>Associate client</h2>
+</div>
+<%= form_for :client_association, url: backend_admin_therapist_clients_path(therapist_id: params[:therapist_id]), method: :post do |f| %>
+  <% errors && errors.each do |error| %>
+    <div class="alert alert-error">
+      <%= error %>
+    </div>
+  <% end %>
+  <%= f.label :client_id, 'Client' %>
+  <%= f.text_field :client_id %>
+  <div class="form-actions">
+    <%= submit_tag('Associate', class: 'btn-primary') %>
+  </div>
+<% end %>

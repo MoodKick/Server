@@ -1,0 +1,21 @@
+<section class="chest-of-hope">
+  <div class="page-header">
+    <h2>Edit hope item</h2>
+  </div>
+
+  <% unless errors.blank? %>
+    <div class="alert alert-error">
+      Not valid
+    </div>
+  <% end %>
+
+  <%= form_for hope_item, { url: backend_client_hope_item_path(hope_item) } do |f| %>
+    <%= f.label :title, 'Title' %>
+    <%= f.text_field :title %>
+    <%= f.label :text, 'Text' %>
+    <%= f.text_area :text %>
+    <div class="form-actions">
+      <%= submit_tag('Update Hope item', class: 'btn-primary') %>
+    </div>
+  <% end %>
+</section>

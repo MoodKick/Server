@@ -1,0 +1,11 @@
+<section class="brochure">
+  <div class="page-header">
+    <h2><%= @brochure.type.humanize %> brochure</h2>
+  </div>
+
+  <div class="body"><%=raw @brochure.body %></body>
+
+  <div class="form-actions">
+    <%= link_to 'Edit', edit_backend_therapist_brochure_path(id: @brochure.type), class: 'btn' %>
+  </div>
+</section>

@@ -1,0 +1,16 @@
+<section class="brochures">
+  <div class="page-header">
+    <h2>Edit <%= @brochure.type.humanize %> brochure</h2>
+  </div>
+
+  <%= render partial: 'backend/shared/wysihtml5_toolbar' %>
+
+  <%= form_for @brochure, {
+    url: backend_therapist_brochure_path(id: @brochure.type),
+    method: :put } do |f| %>
+    <%= f.text_area :body, id: 'wysihtml5-textarea' %>
+    <div class="form-actions">
+      <%= submit_tag 'Update Brochure', class: 'btn-primary' %>
+    </div>
+  <% end %>
+</section>

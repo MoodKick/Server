@@ -1,0 +1,25 @@
+<div class="page-header">
+  <h2>Users</h2>
+</div>
+<div class="form-actions">
+  <%= link_to 'Add user', new_backend_admin_user_path, class: 'btn' %>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Full name</th>
+      <th>Email</th>
+      <th>Roles</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.each do |user| %>
+      <tr>
+        <td><%= link_to user.full_name, backend_admin_user_path(user) %></td>
+        <td><%= user.email %></td>
+        <td><%= user_roles(user.roles) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

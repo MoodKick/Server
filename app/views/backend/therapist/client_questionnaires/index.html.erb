@@ -1,0 +1,18 @@
+<section class="client-questionnaires">
+  <div class="page-header">
+    <h2>Questionnaires</h2>
+  </div>
+
+  <table class="table table-stripped">
+    <thead>
+      <th>Title</th>
+    </thead>
+    <tbody>
+      <% @questionnaires.each do |questionnaire| %>
+        <tr>
+          <td><%= link_to questionnaire.title, backend_therapist_client_questionnaire_results_path(@client, questionnaire) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

@@ -1,0 +1,10 @@
+json.start_date @report.start_date
+json.end_date @report.end_date
+json.number_of_days @report.number_of_days
+json.marked_with_calmness @report.marked_with_calmness
+json.marked_with_anxiety @report.marked_with_anxiety
+json.marked_with_anger @report.marked_with_anger
+json.marked_with_mania @report.marked_with_mania
+json.best_day @report.best_day
+json.worst_day @report.worst_day
+json.happiness_levels @report.happiness_levels

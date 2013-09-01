@@ -1,0 +1,63 @@
+<section class="client-mood-trend">
+  <div class="page-header">
+    <h2>Mood trend</h2>
+  </div>
+
+  <div class="range-selector">
+    <span class="start-date"><%= short_created_at(@report.start_date) %></span>
+    <span class="end-date"><%= short_created_at(@report.end_date) %></span>
+    <div class="selected-period"><%= @report.number_of_days %> days</div>
+  </div>
+  <h2>Happiness through period</h2>
+  <div class="happiness-through-period">
+    <canvas id="client-mood-trend-happiness-through-period-canvas" width="400" height="300"></canvas>
+    <table>
+      <tbody>
+        <% @report.happiness_levels.each do |happiness_level| %>
+          <tr><td><%= happiness_level %></td></tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Days marked with...</h2>
+  <div class="days-marked-with">
+    <table>
+      <tbody>
+        <tr>
+          <th class="calmness">Calmness</th>
+          <td class="calmness"><%= @report.marked_with_calmness %></td>
+          <th class="anger">Anger</th>
+          <td class="anger"><%= @report.marked_with_anger %></td>
+        </tr>
+        <tr>
+          <th class="anxiety">Anxiety</th>
+          <td class="anxiety"><%= @report.marked_with_anxiety %></td>
+          <th class="mania">Mania</th>
+          <td class="mania"><%= @report.marked_with_mania %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Good and Bad</h2>
+  <div class="good-and-bad">
+    <table>
+      <tbody>
+        <tr class="best-day">
+          <th>Best day</th>
+          <td><%= nice_date(@report.best_day) %></td>
+        </tr>
+        <tr class="worst-day">
+          <th>Worst day</th>
+          <td><%= nice_date(@report.worst_day) %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="form-actions">
+    <%= link_to 'Back', backend_therapist_client_path(@report.client), class: 'btn' %>
+  </div>
+
+</section>

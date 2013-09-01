@@ -1,0 +1,9 @@
+json.id @profile.id
+json.username @profile.username
+json.email @profile.email
+json.full_name @profile.full_name
+json.auth_token @profile.authentication_token
+json.avatar_url avatar_url(@profile.avatar_url)
+json.roles @profile.roles
+json.location @profile.location
+json.description @profile.description

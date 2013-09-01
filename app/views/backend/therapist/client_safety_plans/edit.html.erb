@@ -1,0 +1,15 @@
+<section class="client-safety-plan">
+  <div class="page-header">
+    <h2>Edit safety plan</h2>
+  </div>
+
+  <%= render partial: 'backend/shared/wysihtml5_toolbar' %>
+
+  <%= form_for safety_plan, {
+    url: backend_therapist_client_safety_plan_path(client_id: safety_plan.client_id) } do |f| %>
+    <%= f.text_area :body, id: 'wysihtml5-textarea' %>
+    <div class="form-actions">
+      <%= submit_tag 'Update Safety plan', class: 'btn-primary' %>
+    </div>
+  <% end %>
+</section>

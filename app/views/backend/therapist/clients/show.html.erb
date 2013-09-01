@@ -1,0 +1,28 @@
+<section class="client">
+  <div class="page-header">
+    <h2>Client</h2>
+  </div>
+
+  <dl>
+    <dt><strong>Full name:</strong></dt>
+    <dd><%= client.full_name %></dd>
+    <dt><strong>Username:</strong></dt>
+    <dd><%= client.username %></dd>
+    <dt><strong>Email:</strong></dt>
+    <dd><%= client.email %></dd>
+    <dt><strong>Avatar:</strong></dt>
+    <dd><%= image_tag(avatar_url(client.avatar_url)) %></dd>
+    <dt><strong>Location:</strong></dt>
+    <dd><%= client.location %></dd>
+    <dt><strong>Roles:</strong></dt>
+    <dd><%= user_roles(client.roles) %></dd>
+  </dl>
+
+  <div class="form-actions">
+    <%= link_to 'Back', backend_therapist_clients_path, class: 'btn' %>
+    <%= link_to 'Daily journal', backend_therapist_client_daily_journal_entries_path(client), class: 'btn' %>
+    <%= link_to 'Mood trend', backend_therapist_client_mood_trend_path(client), class: 'btn' %>
+    <%= link_to 'Safety plan', backend_therapist_client_safety_plan_path(client), class: 'btn' %>
+    <%= link_to 'Questionnaire Results', backend_therapist_client_questionnaires_path(client), class: 'btn' %>
+  </div>
+</section>

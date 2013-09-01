@@ -1,0 +1,41 @@
+<section class="client-daily-journal-entry">
+  <div class="page-header">
+    <h2>Daily journal entry</h2>
+  </div>
+
+  <div class="row">
+    <div class="span6">
+      <h3 class="created-at"><%= daily_journal_entry_created_at(@daily_journal_entry.created_at) %></h3>
+      <dl>
+        <dt>Overall happiness:</dt>
+        <dd class="happiness-level"><%= daily_journal_entry_happiness_level(@daily_journal_entry.happiness_level) %></dd>
+        <dt>Keywords:</dt>
+        <dd class="keywords"><%= daily_journal_entry_keywords(@daily_journal_entry.keywords) %></dd>
+        <dt>Name of the day:</dt>
+        <dd class="name"><%= @daily_journal_entry.name %></dd>
+        <dt>Description of the day:</dt>
+        <dd class="description"><%= @daily_journal_entry.description %></dd>
+        <dt>Audio:</dt>
+        <dd class="audio">
+          <% if @daily_journal_entry.has_audio? %>
+            <%= link_to('Play', backend_therapist_client_daily_journal_entry_audio_path(@client, @daily_journal_entry), class: 'btn') %>
+          <% else %>
+            No audio
+          <% end %>
+        </dd>
+        <dt>Video:</dt>
+        <dd class="video">
+          <% if @daily_journal_entry.has_video? %>
+            <%= link_to('Play', backend_therapist_client_daily_journal_entry_video_path(@client, @daily_journal_entry), class: 'btn') %>
+          <% else %>
+            No video
+          <% end %>
+        </dd>
+      </dl>
+    </div>
+  </div>
+
+  <div class="form-actions">
+    <%= link_to 'Back', backend_therapist_client_daily_journal_entries_path(@client), class: 'btn' %>
+  </div>
+</section>

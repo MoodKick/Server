@@ -1,0 +1,11 @@
+<section class="client-safety-plan">
+  <div class="page-header">
+    <h2>Safety plan</h2>
+  </div>
+
+  <div class="body"><%= raw safety_plan.body %></div>
+
+  <div class="form-actions">
+    <%= link_to 'Edit', edit_backend_therapist_client_safety_plan_path(client_id: safety_plan.client_id), class: 'btn' %>
+  </div>
+</section>

@@ -1,0 +1,28 @@
+<section class="clients">
+  <div class="page-header">
+    <h2>Clients</h2>
+  </div>
+  <table class="table table-stripped clients">
+    <thead>
+      <tr>
+        <th>Full name</th>
+        <th>Username</th>
+        <th>Avatar</th>
+        <th>Location</th>
+        <th>Roles</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% clients.each do |client| %>
+        <tr>
+          <td><%= link_to client.full_name, backend_therapist_client_path(client) %></td>
+          <td><%= client.username %></td>
+          <td><%= image_tag(avatar_url(client.avatar_url)) %></td>
+          <td><%= client.location %></td>
+          <td><%= user_roles(client.roles) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <%= will_paginate(clients) %>
+</section>

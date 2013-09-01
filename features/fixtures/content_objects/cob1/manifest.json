@@ -1,0 +1,14 @@
+{
+  "title": "title1",
+  "author": "author1",
+  "description": "description1",
+  "data": [
+    {
+      "external_html": {
+        "start": 0,
+        "end": 5,
+        "url": "slide1.html"
+      }
+    }
+  ]
+}

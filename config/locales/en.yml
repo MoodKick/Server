@@ -1,0 +1,19 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+  time:
+    formats:
+      day_month: '%-d/%-m'
+  date:
+    formats:
+      day_month: '%-d/%-m'
+
+  therapists:
+    authentication_failure:
+      should_be_therapist: 'You should be a therapist to sign in'
+
+  admins:
+    authentication_failure:
+      should_be_admin: 'You should be an admin to sign in'

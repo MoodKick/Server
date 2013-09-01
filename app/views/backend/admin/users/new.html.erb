@@ -1,0 +1,29 @@
+<div class="page-header">
+  <h2>New User</h2>
+</div>
+
+<%= form_for user, { url: backend_admin_users_path, method: :post } do |f| %>
+  <% errors && errors.each do |error| %>
+    <div class="alert alert-error">
+      <%= error %>
+    </div>
+  <% end %>
+
+  <%= f.label :username, 'Username' %>
+  <%= f.text_field :username %>
+  <%= f.label :full_name, 'Full name' %>
+  <%= f.text_field :full_name %>
+  <%= f.label :email, 'Email' %>
+  <%= f.email_field :email %>
+  <%= f.label :location, 'Location' %>
+  <%= f.select :location, location_options %>
+  <%= f.label :description, 'Description' %>
+  <%= f.text_area :description %>
+  <%= f.label :password, 'Password' %>
+  <%= f.password_field :password %>
+  <%= f.label :password_confirmation, 'Password confirmation' %>
+  <%= f.password_field :password_confirmation %>
+  <div class="form-actions">
+    <%= submit_tag('Add User', class: 'btn') %>
+  </div>
+<% end %>

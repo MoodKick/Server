@@ -1,0 +1,30 @@
+<section class="questionnaire-results">
+  <div class="page-header">
+    <h2>Questionnaire Results for <%= questionnaire.title %></h2>
+  </div>
+
+  <table class="table table-stripped">
+    <thead>
+      <th>Answered at</th>
+      <% questionnaire.questions.each do |question| %>
+        <th><%= question.description %></th>
+      <% end %>
+      <th>Actions</th>
+    </thead>
+    <tbody>
+      <% questionnaire_results.each do |questionnaire_result| %>
+        <tr>
+          <td><%= questionnaire_result.created_at %></td>
+          <td><%= link_to questionnaire_result.user.username, backend_therapist_client_path(questionnaire_result.user) %></td>
+          <% questionnaire.questions.each do |question| %>
+            <td>
+              <% answer = questionnaire_result.answer_for_question(question) %>
+              <%= answer.response %>
+            </td>
+          <% end %>
+          <td><%= link_to 'Details', backend_therapist_questionnaire_result_path(questionnaire_result) %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</section>

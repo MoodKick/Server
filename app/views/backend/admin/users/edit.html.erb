@@ -1,0 +1,17 @@
+<div class="page-header">
+  <h2>Edit User</h2>
+</div>
+
+<%= form_for user, { url: backend_admin_user_path(user), method: :put } do |f| %>
+  <%= f.label :full_name, 'Full name' %>
+  <%= f.text_field :full_name %>
+  <%= f.label :email, 'Email' %>
+  <%= f.email_field :email %>
+  <%= f.label :location, 'Location' %>
+  <%= f.select :location, location_options %>
+  <%= f.label :description, 'Description' %>
+  <%= f.text_area :description %>
+  <div class="form-actions">
+    <%= submit_tag('Update User', class: 'btn') %>
+  </div>
+<% end %>

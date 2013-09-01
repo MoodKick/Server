@@ -1,0 +1,24 @@
+<div class="page-header">
+  <h2>Content Objects</h2>
+</div>
+<table class="table table-stripped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Launch number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% content_objects.each do |content_object| %>
+      <tr>
+        <td><%= link_to content_object.title, backend_admin_content_object_path(content_object) %></td>
+        <td><%= content_object.launch_number %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="form-actions">
+  <%= link_to 'Update all', update_all_backend_admin_content_objects_path,
+    method: 'post', class: 'btn' %>
+</div>

@@ -1,0 +1,18 @@
+<div class="page-header">
+  <h2>Roles</h2>
+</div>
+<ul>
+  <% all_roles.each do |role| %>
+    <li>
+      <%= role.to_s %>
+      <% if existing_roles.include?(role) %>
+        <%= link_to 'Remove', backend_admin_user_roles_path(user, name: role.to_s), method: :delete %>
+      <% else %>
+        <%= link_to 'Add', backend_admin_user_roles_path(user, name: role.to_s), method: :post %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+<div class="form-actions">
+  <%= link_to 'Back', backend_admin_user_path(user), class: 'btn' %>
+</div>

@@ -1,0 +1,21 @@
+<div class="page-header">
+  <h2>Content Object</h2>
+</div>
+
+<dl>
+  <dt>Title</dt>
+  <dd><%= content_object.title %></dd>
+
+  <dt>Name</dt>
+  <dd><%= content_object.name %></dd>
+
+  <dt>Author</dt>
+  <dd><%= content_object.author %></dd>
+
+  <dt>Description</dt>
+  <dd><%= content_object.description %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to 'Back', backend_admin_content_objects_path, class: 'btn' %>
+</div>

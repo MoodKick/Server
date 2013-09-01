@@ -1,0 +1,29 @@
+<section class="client-daily-journal-entries">
+  <div class="page-header">
+    <h2>Client's daily journal entries</h2>
+  </div>
+
+
+  <table class="table table-stripped client-daily-journal-entries">
+    <thead>
+      <th>Created At</th>
+      <th>Keywords</th>
+      <th>Happiness level</th>
+    </thead>
+    <tbody>
+      <% @daily_journal_entries.each do |daily_journal_entry| %>
+        <tr>
+          <td>
+            <%= daily_journal_entry_created_at_link(daily_journal_entry.created_at, backend_therapist_client_daily_journal_entry_path(daily_journal_entry.user, daily_journal_entry)) %>
+          </td>
+          <td><%= daily_journal_entry_keywords(daily_journal_entry.keywords) %></td>
+          <td><%= daily_journal_entry_happiness_level(daily_journal_entry.happiness_level) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+ 
+  <div class="form-actions">
+    <%= link_to 'Back', backend_therapist_client_path(@client), class: 'btn' %>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+<section class="client-questionnaire-result">
+  <div class="page-header">
+    <h2>Questionnaire Result</h2>
+  </div>
+
+  <dl>
+    <dt>Answered at</dd>
+    <dd><%= questionnaire_result.created_at %></dd>
+    <% questionnaire_result.questionnaire.questions.each do |question| %>
+      <% answer = questionnaire_result.answer_for_question(question) %>
+      <dt><%= question.description %></dt>
+      <dd><%= answer.response %></dd>
+    <% end %>
+  </dl>
+</section>

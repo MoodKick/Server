@@ -1,0 +1,15 @@
+<h2>Sign in</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="inputs">
+    <%= f.label :username %>
+    <%= f.text_field :username %>
+    <%= f.label :password %>
+    <%= f.password_field :password %>
+    <label>Remember me <%= f.check_box :remember_me %></label>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag 'Sign in' %>
+  </div>
+<% end %>
