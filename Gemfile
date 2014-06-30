@@ -6,7 +6,7 @@ gem 'cancan', '>= 1.6.7'
 gem 'will_paginate', '>= 3.0.3'
 
 gem 'em-websocket'
-gem 'pg'
+gem 'pg', '~> 0.17.1'
 gem 'carrierwave'
 
 gem 'dim', git: 'https://github.com/subelsky/dim.git'
@@ -20,7 +20,6 @@ group :development do
 end
 
 group :development, :test, :acceptance do
-  gem 'debugger'
   gem 'rspec-rails', '>= 2.10.1'
   gem 'factory_girl_rails', '>= 3.3.0'
 end
